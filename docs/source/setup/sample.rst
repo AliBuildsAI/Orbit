@@ -58,7 +58,7 @@ The list of environments available registered with OpenAI Gym can be found by ru
 Basic agents
 ~~~~~~~~~~~~
 
-These include basic agents that output zero or random agents. They are
+These include basic agents that output zero or random actions. They are
 useful to ensure that the environments are configured correctly.
 
 -  Zero-action agent on the Cart-pole example
