@@ -141,9 +141,36 @@ class Se3Keyboard(DeviceBase):
             if event.input.name == "K":
                 self._close_gripper = not self._close_gripper
             elif event.input.name in ["W", "S", "A", "D", "Q", "E"]:
+                print(self.pos_sensitivity, self.rot_sensitivity)
                 self._delta_pos += self._INPUT_KEY_MAPPING[event.input.name]
+                print(self.pos_sensitivity, self.rot_sensitivity)
             elif event.input.name in ["Z", "X", "T", "G", "C", "V"]:
                 self._delta_rot += self._INPUT_KEY_MAPPING[event.input.name]
+            elif event.input.name == "H":
+                print("self.pos_sensitivity before change: ", self.pos_sensitivity)
+                self.pos_sensitivity *= 10
+                # bindings for keyboard to command
+                self._create_key_bindings()
+                print("self.pos_sensitivity after change: ", self.pos_sensitivity)
+            elif event.input.name == "J":
+                print("self.pos_sensitivity before change: ", self.pos_sensitivity)
+                self.pos_sensitivity /= 10
+                # bindings for keyboard to command
+                self._create_key_bindings()
+                print("self.pos_sensitivity after change: ", self.pos_sensitivity)
+            elif event.input.name == "K":
+                print("self.rot_sensitivity before change: ", self.rot_sensitivity)
+                self.rot_sensitivity *= 10
+                # bindings for keyboard to command
+                self._create_key_bindings()
+                print("self.rot_sensitivity after change: ", self.rot_sensitivity)
+            elif event.input.name == "L":
+                print("self.rot_sensitivity before change: ", self.rot_sensitivity)
+                self.rot_sensitivity /= 10
+                # bindings for keyboard to command
+                self._create_key_bindings()
+                print("self.rot_sensitivity after change: ", self.rot_sensitivity)
+
         # remove the command when un-pressed
         if event.type == carb.input.KeyboardEventType.KEY_RELEASE:
             if event.input.name in ["W", "S", "A", "D", "Q", "E"]:
